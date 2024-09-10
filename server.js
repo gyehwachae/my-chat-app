@@ -1,3 +1,23 @@
+//mysql2 연결
+const mysql=require('mysql2');
+//mysql db connection set
+const db = mysql.createConnection({
+	host: 'localhost',
+	user: 'root',
+	password: 'root2024',
+	database: 'chat_app'
+});
+
+db.connect((err) => {
+	if(err) {
+		console.error('Error connection to the DB', err);
+		return;
+	}
+	console.log('connected to the MySql DB');
+});
+
+
+
 // Express, Websocket 모듈 가져오기
 const express = require('express');
 const WebSocket = require('ws');
@@ -11,7 +31,7 @@ const port = 3000;
 app.use(express.static('public'));
 
 // WebSocket 서버설정
-//
+//테스트
 const server = app.listen(port, () => {
 	console.log('Listening on http://localhost:${port}');
 });
